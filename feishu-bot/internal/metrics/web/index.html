@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>deephack</title>
+    <link rel="stylesheet" href="static/uPlot.min.css" />
+    <style>
+      :root {
+        /* Higher-contrast palette (Grafana-like) */
+        --bg: #0b1220;
+        --panel: #111a2b;
+        --text: #f8fafc;
+        --muted: #cbd5e1;
+        --grid: rgba(255, 255, 255, 0.16);
+        --border: rgba(255, 255, 255, 0.18);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        --accent: #93c5fd;
+        --bad: #ef4444;
+        --good: #10b981;
+        --warn: #f59e0b;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        background: rgba(0, 0, 0, 0.15);
+      }
+      header h1 {
+        font-size: 16px;
+        margin: 0;
+        letter-spacing: 0.2px;
+      }
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      select,
+      button {
+        background: var(--panel);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:hover {
+        filter: brightness(1.06);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+      }
+      main {
+        padding: 16px 20px 24px 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+      @media (max-width: 980px) {
+        .summary {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 12px 10px 12px;
+        box-shadow: var(--shadow);
+      }
+      .card .k {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .card .v {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+      .v.good {
+        color: var(--good);
+      }
+      .v.bad {
+        color: var(--bad);
+      }
+      .v.warn {
+        color: var(--warn);
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 12px 8px 12px;
+        box-shadow: var(--shadow);
+      }
+      .panel-title {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 10px 2px;
+      }
+      .plot-wrap {
+        position: relative;
+      }
+      .uplot {
+        --gridColor: var(--grid);
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 10px;
+      }
+      /* Make the drag-to-zoom selection box clearly visible (Grafana-like). */
+      .uplot .u-select {
+        background: rgba(147, 197, 253, 0.28) !important;
+        border: 2px solid rgba(147, 197, 253, 0.95) !important;
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.35),
+          0 0 18px rgba(147, 197, 253, 0.35);
+        border-radius: 6px;
+      }
+      /* Improve cursor crosshair visibility. */
+      .uplot .u-hz .u-cursor-x,
+      .uplot .u-vt .u-cursor-y {
+        border-right: 1px dashed rgba(147, 197, 253, 0.9);
+      }
+      .uplot .u-hz .u-cursor-y,
+      .uplot .u-vt .u-cursor-x {
+        border-bottom: 1px dashed rgba(147, 197, 253, 0.9);
+      }
+      .hint {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .error {
+        color: #ff6b6b;
+        font-size: 13px;
+        white-space: pre-wrap;
+      }
+      .legend-note {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>deephack</h1>
+      <div class="controls">
+        <span>Range</span>
+        <select id="range">
+          <option value="1h">Last 1 hour</option>
+          <option value="6h">Last 6 hours</option>
+          <option value="12h">Last 12 hours</option>
+          <option value="24h" selected>Last 24 hours</option>
+          <option value="7d">Last 7 days</option>
+          <option value="30d">Last 30 days</option>
+        </select>
+        <span>Step</span>
+        <select id="step">
+          <option value="auto" selected>Auto</option>
+          <option value="60">1 min</option>
+          <option value="300">5 min</option>
+          <option value="600">10 min</option>
+          <option value="3600">1 hour</option>
+        </select>
+        <span>Auto</span>
+        <select id="auto">
+          <option value="0">Off</option>
+          <option value="10000">10s</option>
+          <option value="30000">30s</option>
+          <option value="60000" selected>60s</option>
+        </select>
+        <button id="reset_zoom" title="Reset zoom to the full loaded time range" disabled>Reset zoom</button>
+        <button id="refresh">Refresh</button>
+        <span class="pill" id="live"></span>
+        <span class="pill" id="viewrange"></span>
+        <span class="pill" id="selectrange" style="display: none"></span>
+        <span class="pill" id="status"></span>
+      </div>
+    </header>
+
+    <main>
+      <div class="summary">
+        <div class="card">
+          <div class="k">In-flight</div>
+          <div class="v" id="s_inflight">0</div>
+        </div>
+        <div class="card">
+          <div class="k">Total requests (range)</div>
+          <div class="v" id="s_req">0</div>
+        </div>
+        <div class="card">
+          <div class="k">Total failures (range)</div>
+          <div class="v bad" id="s_fail">0</div>
+        </div>
+        <div class="card">
+          <div class="k">Total tokens (range)</div>
+          <div class="v good" id="s_tok">0</div>
+        </div>
+        <div class="card">
+          <div class="k">Total cost USD (range)</div>
+          <div class="v warn" id="s_cost">$0.0000</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Panel 1 · Requests / Failures</div>
+        <div class="plot-wrap" id="p1"></div>
+        <div class="legend-note">Hover to see values at the cursor time. Drag to zoom. Double click to reset.</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Panel 2 · Tokens (left) / Cost USD (right)</div>
+        <div class="plot-wrap" id="p2"></div>
+        <div class="legend-note">Cost is computed from METRICS_PRICE_* settings (USD per 1M tokens).</div>
+      </div>
+
+      <div class="hint">
+        API:
+        <a id="api_link" href="api?range=24h&step_sec=600" target="_blank" rel="noopener noreferrer">/metrics/api</a>
+      </div>
+      <div class="error" id="error" style="display: none"></div>
+    </main>
+
+    <script src="static/uPlot.iife.min.js"></script>
+    <script>
+      const $ = (id) => document.getElementById(id);
+
+      function parseRangeToMs(range) {
+        // Support h/m/s and a simple d suffix.
+        if (!range) return 24 * 3600 * 1000;
+        const m = range.match(/^([0-9]+)([smhd])$/);
+        if (!m) return 24 * 3600 * 1000;
+        const n = parseInt(m[1], 10);
+        const unit = m[2];
+        const mul =
+          unit === "s"
+            ? 1000
+            : unit === "m"
+              ? 60 * 1000
+              : unit === "h"
+                ? 3600 * 1000
+                : 24 * 3600 * 1000;
+        return n * mul;
+      }
+
+      function chooseAutoStepSec(rangeMs) {
+        // The recorder is minute-granularity. Keep series sizes reasonable while
+        // allowing finer detail on shorter ranges.
+        const sec = Math.max(60, Math.floor(rangeMs / 1000));
+        if (sec <= 2 * 3600) return 60; // <= 2h -> 1m
+        if (sec <= 12 * 3600) return 300; // <= 12h -> 5m
+        // Keep the default last-24h view at 10-minute resolution (as requested),
+        // but let the user choose 1m/5m explicitly if they want finer detail.
+        if (sec <= 7 * 24 * 3600) return 600; // <= 7d -> 10m
+        return 3600; // > 7d -> 1h
+      }
+
+      function chooseTimeAxisFormatter(rangeSec) {
+        // Use short labels to avoid overlapping.
+        if (rangeSec <= 6 * 3600) {
+          return uPlot.fmtDate("{HH}:{mm}");
+        }
+        if (rangeSec <= 48 * 3600) {
+          return uPlot.fmtDate("{MM}-{DD}\n{HH}:{mm}");
+        }
+        if (rangeSec <= 14 * 24 * 3600) {
+          return uPlot.fmtDate("{MM}-{DD}");
+        }
+        return uPlot.fmtDate("{YYYY}-{MM}-{DD}");
+      }
+
+      function chooseLegendTimeFormatter(rangeSec) {
+        // Similar to axis labels, but keep it one line for the hover legend.
+        if (rangeSec <= 6 * 3600) {
+          return uPlot.fmtDate("{HH}:{mm}");
+        }
+        if (rangeSec <= 48 * 3600) {
+          return uPlot.fmtDate("{MM}-{DD} {HH}:{mm}");
+        }
+        if (rangeSec <= 14 * 24 * 3600) {
+          return uPlot.fmtDate("{MM}-{DD}");
+        }
+        return uPlot.fmtDate("{YYYY}-{MM}-{DD}");
+      }
+
+      function buildOpts(title, seriesDefs, dualAxis, rangeSec, widthPx, yTickOpts, y2TickOpts) {
+        const fmt = chooseTimeAxisFormatter(rangeSec);
+        const legendTimeFmt = chooseLegendTimeFormatter(rangeSec);
+        const xAxisSize = rangeSec <= 48 * 3600 ? 56 : 44;
+        const yAxisSize = 96; // ensure tick labels (with units) are not clipped
+        const axes = [
+          {
+            stroke: "#E2E8F0",
+            grid: { stroke: "rgba(255,255,255,0.16)", width: 1 },
+            values: (u, ticks) => ticks.map((t) => fmt(new Date(t * 1000))),
+            space: 80,
+            size: xAxisSize,
+          },
+          {
+            stroke: "#E2E8F0",
+            grid: { stroke: "rgba(255,255,255,0.16)", width: 1 },
+            values: (u, ticks) => ticks.map((v) => formatTick(v, yTickOpts)),
+            size: yAxisSize,
+          },
+        ];
+
+        const scales = { x: { time: true }, y: { auto: true } };
+        if (dualAxis) {
+          scales.y2 = { auto: true };
+          axes.push({
+            stroke: "#E2E8F0",
+            side: 1,
+            grid: { show: false },
+            scale: "y2",
+            values: (u, ticks) => ticks.map((v) => formatTick(v, y2TickOpts)),
+            size: yAxisSize,
+          });
+        }
+
+        return {
+          title,
+          // Fit the container width so charts don't overflow / get clipped.
+          width: Math.max(320, Math.floor(widthPx || 0)),
+          height: 320,
+          font: "12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial",
+          scales,
+          axes,
+          series: [
+            {
+              label: "Time",
+              value: (u, v) => {
+                if (v === null || v === undefined) return "";
+                return legendTimeFmt(new Date(v * 1000));
+              },
+            },
+            ...seriesDefs,
+          ],
+          legend: { show: true },
+          select: {
+            show: true,
+            fill: "rgba(147,197,253,0.22)",
+            stroke: "rgba(147,197,253,0.85)",
+          },
+          cursor: { drag: { x: true, y: false, setScale: true } },
+          hooks: {
+            ready: [
+              (u) => {
+                // Double click resets zoom.
+                u.root.addEventListener("dblclick", () => {
+                  const min = u.data[0][0];
+                  const max = u.data[0][u.data[0].length - 1];
+                  u.setScale("x", { min, max });
+                });
+                u.root.addEventListener("mouseleave", () => {
+                  setSelectRangePill(null, null);
+                });
+              },
+            ],
+            setSelect: [
+              (u) => {
+                if (!u.select || u.select.width <= 2) {
+                  setSelectRangePill(null, null);
+                  return;
+                }
+                const x0 = u.posToVal(u.select.left, "x");
+                const x1 = u.posToVal(u.select.left + u.select.width, "x");
+                const min = Math.min(x0, x1);
+                const max = Math.max(x0, x1);
+                setSelectRangePill(min, max);
+              },
+            ],
+            setScale: [
+              (u, key) => {
+                if (key !== "x") return;
+                if (!u.scales || !u.scales.x) return;
+                const min = u.scales.x.min;
+                const max = u.scales.x.max;
+                if (min === null || max === null || min === undefined || max === undefined) return;
+                setSelectRangePill(null, null);
+                setXRangeAll(min, max, u);
+              },
+            ],
+          },
+        };
+      }
+
+      let plot1 = null;
+      let plot2 = null;
+      let lastResult = null;
+      let fullXMin = null;
+      let fullXMax = null;
+      let syncingX = false;
+      let seriesTimer = null;
+      let liveTimer = null;
+
+      function destroyPlot(p) {
+        if (!p) return;
+        p.destroy();
+      }
+
+      function setStatus(s) {
+        $("status").textContent = s || "";
+      }
+
+      function formatInt(n) {
+        try {
+          return (n || 0).toLocaleString();
+        } catch {
+          return String(n || 0);
+        }
+      }
+
+      function formatShortNumber(value) {
+        if (value === null || value === undefined) return "";
+        const n = Number(value);
+        if (!Number.isFinite(n)) return "";
+        const abs = Math.abs(n);
+        const suffixes = ["", "K", "M", "B", "T"];
+        let v = abs;
+        let i = 0;
+        while (v >= 1000 && i < suffixes.length - 1) {
+          v /= 1000;
+          i++;
+        }
+        const sign = n < 0 ? "-" : "";
+        return `${sign}${v.toFixed(2)}${suffixes[i]}`;
+      }
+
+      function formatTick(value, opts) {
+        const o = opts || {};
+        const prefix = o.prefix || "";
+        const suffix = o.suffix || "";
+        const s = formatShortNumber(value);
+        if (!s) return "";
+        if (prefix) {
+          if (s.startsWith("-")) return `-${prefix}${s.slice(1)}${suffix}`;
+          return `${prefix}${s}${suffix}`;
+        }
+        return `${s}${suffix}`;
+      }
+
+      function formatDurationShort(sec) {
+        const s = Math.max(0, Number(sec || 0));
+        if (s < 60) return `${s.toFixed(0)}s`;
+        if (s < 3600) return `${(s / 60).toFixed(2)}m`;
+        if (s < 86400) return `${(s / 3600).toFixed(2)}h`;
+        return `${(s / 86400).toFixed(2)}d`;
+      }
+
+      function setViewRangePill(minSec, maxSec) {
+        const el = $("viewrange");
+        if (minSec === null || maxSec === null || minSec === undefined || maxSec === undefined) {
+          el.textContent = "";
+          return;
+        }
+        const min = Number(minSec);
+        const max = Number(maxSec);
+        if (!Number.isFinite(min) || !Number.isFinite(max)) {
+          el.textContent = "";
+          return;
+        }
+        const dur = Math.max(0, max - min);
+        const fmt = chooseLegendTimeFormatter(dur);
+        const left = fmt(new Date(min * 1000));
+        const right = fmt(new Date(max * 1000));
+        el.textContent = `View: ${left} → ${right} (${formatDurationShort(dur)})`;
+      }
+
+      function setSelectRangePill(minSec, maxSec) {
+        const el = $("selectrange");
+        if (minSec === null || maxSec === null || minSec === undefined || maxSec === undefined) {
+          el.style.display = "none";
+          el.textContent = "";
+          return;
+        }
+        const min = Number(minSec);
+        const max = Number(maxSec);
+        if (!Number.isFinite(min) || !Number.isFinite(max) || max <= min) {
+          el.style.display = "none";
+          el.textContent = "";
+          return;
+        }
+        const dur = Math.max(0, max - min);
+        const fmt = chooseLegendTimeFormatter(dur);
+        const left = fmt(new Date(min * 1000));
+        const right = fmt(new Date(max * 1000));
+        el.textContent = `Select: ${left} → ${right} (${formatDurationShort(dur)})`;
+        el.style.display = "inline-flex";
+      }
+
+      function updateResetZoomButton(minSec, maxSec) {
+        const btn = $("reset_zoom");
+        if (btn == null) return;
+        if (fullXMin === null || fullXMax === null) {
+          btn.disabled = true;
+          return;
+        }
+        const eps = 1e-6;
+        const zoomed =
+          minSec !== null &&
+          maxSec !== null &&
+          (Math.abs(minSec - fullXMin) > eps || Math.abs(maxSec - fullXMax) > eps);
+        btn.disabled = !zoomed;
+      }
+
+      function setXRangeAll(minSec, maxSec, sourcePlot) {
+        if (syncingX) return;
+        if (minSec === null || maxSec === null) return;
+        const min = Number(minSec);
+        const max = Number(maxSec);
+        if (!Number.isFinite(min) || !Number.isFinite(max) || max <= min) return;
+
+        // Update UI even if charts aren't fully initialized yet.
+        setViewRangePill(min, max);
+        updateResetZoomButton(min, max);
+
+        // No need to sync if the other panel isn't ready.
+        if (!plot1 || !plot2) {
+          return;
+        }
+
+        syncingX = true;
+        try {
+          if (plot1 && plot1 !== sourcePlot) plot1.setScale("x", { min, max });
+          if (plot2 && plot2 !== sourcePlot) plot2.setScale("x", { min, max });
+        } finally {
+          syncingX = false;
+        }
+      }
+
+      function setTotals(totals) {
+        if (!totals) return;
+        const req = formatInt(totals.requests || 0);
+        const fail = formatInt(totals.failures || 0);
+        const tok = formatInt(totals.tokens || 0);
+        const cost = ((totals.cost_usd_micros || 0) / 1e6).toFixed(4);
+        $("s_req").textContent = req;
+        $("s_fail").textContent = fail;
+        $("s_tok").textContent = tok;
+        $("s_cost").textContent = `$${cost}`;
+      }
+
+      function showError(e) {
+        const el = $("error");
+        el.style.display = "block";
+        el.textContent = e || "Unknown error";
+      }
+
+      function clearError() {
+        const el = $("error");
+        el.style.display = "none";
+        el.textContent = "";
+      }
+
+      function getStepSec() {
+        const stepSel = $("step").value || "auto";
+        if (stepSel === "auto") {
+          const range = $("range").value || "24h";
+          return chooseAutoStepSec(parseRangeToMs(range));
+        }
+        const n = parseInt(stepSel, 10);
+        return Number.isFinite(n) && n > 0 ? n : 600;
+      }
+
+      function updateApiLink() {
+        const range = $("range").value || "24h";
+        const stepSec = getStepSec();
+        const href = `api?range=${encodeURIComponent(range)}&step_sec=${stepSec}`;
+        $("api_link").setAttribute("href", href);
+      }
+
+      async function fetchSeries(range, stepSec) {
+        const url = `api?range=${encodeURIComponent(range)}&step_sec=${stepSec}`;
+        const resp = await fetch(url, { cache: "no-store" });
+        if (!resp.ok) {
+          const body = await resp.text();
+          throw new Error(`HTTP ${resp.status}: ${body}`);
+        }
+        return await resp.json();
+      }
+
+      async function fetchLive() {
+        const resp = await fetch("live", { cache: "no-store" });
+        if (!resp.ok) {
+          return null;
+        }
+        return await resp.json();
+      }
+
+      function setLive(inFlight) {
+        if (inFlight === null || inFlight === undefined) {
+          $("live").textContent = "";
+          return;
+        }
+        $("live").textContent = `In-flight: ${inFlight}`;
+        $("s_inflight").textContent = formatInt(inFlight);
+      }
+
+      function render(result) {
+        const pts = result.points || [];
+        const x = pts.map((p) => Math.floor(p.t_ms / 1000));
+        fullXMin = x.length > 0 ? x[0] : null;
+        fullXMax = x.length > 0 ? x[x.length - 1] : null;
+
+        const req = pts.map((p) => p.requests || 0);
+        const fail = pts.map((p) => p.failures || 0);
+        const tokens = pts.map((p) => p.tokens || 0);
+        const cost = pts.map((p) => (p.cost_usd_micros || 0) / 1e6);
+
+        const el1 = $("p1");
+        const el2 = $("p2");
+        destroyPlot(plot1);
+        destroyPlot(plot2);
+        el1.innerHTML = "";
+        el2.innerHTML = "";
+
+        const rangeSec = Math.max(1, (result.end_unix_sec || 0) - (result.start_unix_sec || 0));
+        const w1 = Math.max(320, Math.floor(el1.getBoundingClientRect().width || 0));
+        const w2 = Math.max(320, Math.floor(el2.getBoundingClientRect().width || 0));
+
+        const p1Series = [
+          {
+            label: "Requests",
+            stroke: "#3B82F6",
+            width: 3,
+            value: (u, v) => formatTick(v, { suffix: " req" }),
+          },
+          {
+            label: "Failures",
+            stroke: "#EF4444",
+            width: 3,
+            value: (u, v) => formatTick(v, { suffix: " req" }),
+          },
+        ];
+        plot1 = new uPlot(
+          buildOpts("Requests & Failures", p1Series, false, rangeSec, w1, { suffix: " req" }, null),
+          [x, req, fail],
+          el1,
+        );
+
+        const p2Series = [
+          {
+            label: "Tokens",
+            stroke: "#10B981",
+            width: 3,
+            scale: "y",
+            value: (u, v) => formatTick(v, { suffix: " tok" }),
+          },
+          {
+            label: "Cost (USD)",
+            stroke: "#F59E0B",
+            width: 3,
+            scale: "y2",
+            value: (u, v) => formatTick(v, { prefix: "$" }),
+          },
+        ];
+        plot2 = new uPlot(
+          buildOpts("Tokens & Cost", p2Series, true, rangeSec, w2, { suffix: " tok" }, { prefix: "$" }),
+          [x, tokens, cost],
+          el2,
+        );
+
+        // Initialize range pills & reset-zoom button.
+        setViewRangePill(fullXMin, fullXMax);
+        updateResetZoomButton(fullXMin, fullXMax);
+      }
+
+      async function refresh() {
+        clearError();
+        const range = $("range").value || "24h";
+        const stepSec = getStepSec();
+        updateApiLink();
+        setStatus("Loading…");
+        const start = Date.now();
+        try {
+          const r = await fetchSeries(range, stepSec);
+          lastResult = r;
+          setTotals(r.totals);
+          render(r);
+          const ms = Date.now() - start;
+          setStatus(`Updated · ${new Date().toLocaleTimeString()} · ${ms}ms`);
+        } catch (e) {
+          showError(String(e && e.message ? e.message : e));
+          setStatus("");
+        }
+      }
+
+      async function refreshLive() {
+        try {
+          const live = await fetchLive();
+          if (live && typeof live.in_flight === "number") {
+            setLive(live.in_flight);
+          } else {
+            setLive(null);
+          }
+        } catch {
+          setLive(null);
+        }
+      }
+
+      function setSeriesAutoRefresh() {
+        if (seriesTimer) {
+          clearInterval(seriesTimer);
+          seriesTimer = null;
+        }
+        const ms = parseInt($("auto").value || "0", 10);
+        if (Number.isFinite(ms) && ms > 0) {
+          seriesTimer = setInterval(() => {
+            refresh();
+          }, ms);
+        }
+      }
+
+      function setLiveAutoRefresh() {
+        if (liveTimer) {
+          clearInterval(liveTimer);
+          liveTimer = null;
+        }
+        liveTimer = setInterval(() => {
+          refreshLive();
+        }, 2000);
+      }
+
+      $("refresh").addEventListener("click", refresh);
+      $("range").addEventListener("change", () => {
+        refresh();
+      });
+      $("step").addEventListener("change", () => {
+        refresh();
+      });
+      $("auto").addEventListener("change", () => {
+        setSeriesAutoRefresh();
+      });
+      $("reset_zoom").addEventListener("click", () => {
+        if (fullXMin !== null && fullXMax !== null) {
+          setXRangeAll(fullXMin, fullXMax, null);
+        }
+      });
+
+      // Refresh on load and on resize (so plots fit the window).
+      window.addEventListener("resize", () => {
+        if (lastResult) {
+          render(lastResult);
+        }
+      });
+      refresh();
+      refreshLive();
+      setSeriesAutoRefresh();
+      setLiveAutoRefresh();
+    </script>
+  </body>
+</html>

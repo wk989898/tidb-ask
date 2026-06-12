@@ -1,0 +1,920 @@
+[submodule "doc"]
+	path = doc
+	url = https://github.com/pingcap/docs.git
+	shallow = true
+[submodule "code/pingcap/tidb"]
+	path = code/pingcap/tidb
+	url = https://github.com/pingcap/tidb.git
+	shallow = true
+[submodule "code/pingcap/tiflash"]
+	path = code/pingcap/tiflash
+	url = https://github.com/pingcap/tiflash.git
+	shallow = true
+[submodule "code/tikv/tikv"]
+	path = code/tikv/tikv
+	url = https://github.com/tikv/tikv.git
+	shallow = true
+[submodule "code/tikv/pd"]
+	path = code/tikv/pd
+	url = https://github.com/tikv/pd.git
+	shallow = true
+[submodule "code/pingcap/LinguFlow"]
+	path = code/pingcap/LinguFlow
+	url = https://github.com/pingcap/LinguFlow.git
+	shallow = true
+[submodule "code/pingcap/TiDB-Lambda-integration"]
+	path = code/pingcap/TiDB-Lambda-integration
+	url = https://github.com/pingcap/TiDB-Lambda-integration.git
+	shallow = true
+[submodule "code/pingcap/activerecord-tidb-adapter"]
+	path = code/pingcap/activerecord-tidb-adapter
+	url = https://github.com/pingcap/activerecord-tidb-adapter.git
+	shallow = true
+[submodule "code/pingcap/advanced-statefulset"]
+	path = code/pingcap/advanced-statefulset
+	url = https://github.com/pingcap/advanced-statefulset.git
+	shallow = true
+[submodule "code/pingcap/agent-rules"]
+	path = code/pingcap/agent-rules
+	url = https://github.com/pingcap/agent-rules.git
+	shallow = true
+[submodule "code/pingcap/agfs"]
+	path = code/pingcap/agfs
+	url = https://github.com/pingcap/agfs.git
+	shallow = true
+[submodule "code/pingcap/autoflow"]
+	path = code/pingcap/autoflow
+	url = https://github.com/pingcap/autoflow.git
+	shallow = true
+[submodule "code/pingcap/awesome-database-learning"]
+	path = code/pingcap/awesome-database-learning
+	url = https://github.com/pingcap/awesome-database-learning.git
+	shallow = true
+[submodule "code/pingcap/badger"]
+	path = code/pingcap/badger
+	url = https://github.com/pingcap/badger.git
+	shallow = true
+[submodule "code/pingcap/balsa"]
+	path = code/pingcap/balsa
+	url = https://github.com/pingcap/balsa.git
+	shallow = true
+[submodule "code/pingcap/benchmarksql"]
+	path = code/pingcap/benchmarksql
+	url = https://github.com/pingcap/benchmarksql.git
+	shallow = true
+[submodule "code/pingcap/blog"]
+	path = code/pingcap/blog
+	url = https://github.com/pingcap/blog.git
+	shallow = true
+[submodule "code/pingcap/blog-cn"]
+	path = code/pingcap/blog-cn
+	url = https://github.com/pingcap/blog-cn.git
+	shallow = true
+[submodule "code/pingcap/blog-jp"]
+	path = code/pingcap/blog-jp
+	url = https://github.com/pingcap/blog-jp.git
+	shallow = true
+[submodule "code/pingcap/book.tidb.net"]
+	path = code/pingcap/book.tidb.net
+	url = https://github.com/pingcap/book.tidb.net.git
+	shallow = true
+[submodule "code/pingcap/boost-extra"]
+	path = code/pingcap/boost-extra
+	url = https://github.com/pingcap/boost-extra.git
+	shallow = true
+[submodule "code/pingcap/br"]
+	path = code/pingcap/br
+	url = https://github.com/pingcap/br.git
+	shallow = true
+[submodule "code/pingcap/campaign"]
+	path = code/pingcap/campaign
+	url = https://github.com/pingcap/campaign.git
+	shallow = true
+[submodule "code/pingcap/capnproto"]
+	path = code/pingcap/capnproto
+	url = https://github.com/pingcap/capnproto.git
+	shallow = true
+[submodule "code/pingcap/chaos"]
+	path = code/pingcap/chaos
+	url = https://github.com/pingcap/chaos.git
+	shallow = true
+[submodule "code/pingcap/check"]
+	path = code/pingcap/check
+	url = https://github.com/pingcap/check.git
+	shallow = true
+[submodule "code/pingcap/cloud-assets-utils"]
+	path = code/pingcap/cloud-assets-utils
+	url = https://github.com/pingcap/cloud-assets-utils.git
+	shallow = true
+[submodule "code/pingcap/community"]
+	path = code/pingcap/community
+	url = https://github.com/pingcap/community.git
+	shallow = true
+[submodule "code/pingcap/community-website"]
+	path = code/pingcap/community-website
+	url = https://github.com/pingcap/community-website.git
+	shallow = true
+[submodule "code/pingcap/dbt-tidb"]
+	path = code/pingcap/dbt-tidb
+	url = https://github.com/pingcap/dbt-tidb.git
+	shallow = true
+[submodule "code/pingcap/dead-mans-switch"]
+	path = code/pingcap/dead-mans-switch
+	url = https://github.com/pingcap/dead-mans-switch.git
+	shallow = true
+[submodule "code/pingcap/diag"]
+	path = code/pingcap/diag
+	url = https://github.com/pingcap/diag.git
+	shallow = true
+[submodule "code/pingcap/diagnosis-ui"]
+	path = code/pingcap/diagnosis-ui
+	url = https://github.com/pingcap/diagnosis-ui.git
+	shallow = true
+[submodule "code/pingcap/discourse"]
+	path = code/pingcap/discourse
+	url = https://github.com/pingcap/discourse.git
+	shallow = true
+[submodule "code/pingcap/discourse-assign"]
+	path = code/pingcap/discourse-assign
+	url = https://github.com/pingcap/discourse-assign.git
+	shallow = true
+[submodule "code/pingcap/discourse-chat-integration"]
+	path = code/pingcap/discourse-chat-integration
+	url = https://github.com/pingcap/discourse-chat-integration.git
+	shallow = true
+[submodule "code/pingcap/discourse-theme-asktug"]
+	path = code/pingcap/discourse-theme-asktug
+	url = https://github.com/pingcap/discourse-theme-asktug.git
+	shallow = true
+[submodule "code/pingcap/discourse-topic-enhancement"]
+	path = code/pingcap/discourse-topic-enhancement
+	url = https://github.com/pingcap/discourse-topic-enhancement.git
+	shallow = true
+[submodule "code/pingcap/discourse_docker"]
+	path = code/pingcap/discourse_docker
+	url = https://github.com/pingcap/discourse_docker.git
+	shallow = true
+[submodule "code/pingcap/django-tidb"]
+	path = code/pingcap/django-tidb
+	url = https://github.com/pingcap/django-tidb.git
+	shallow = true
+[submodule "code/pingcap/dm"]
+	path = code/pingcap/dm
+	url = https://github.com/pingcap/dm.git
+	shallow = true
+[submodule "code/pingcap/docs-appdev"]
+	path = code/pingcap/docs-appdev
+	url = https://github.com/pingcap/docs-appdev.git
+	shallow = true
+[submodule "code/pingcap/docs-cn"]
+	path = code/pingcap/docs-cn
+	url = https://github.com/pingcap/docs-cn.git
+	shallow = true
+[submodule "code/pingcap/docs-dm"]
+	path = code/pingcap/docs-dm
+	url = https://github.com/pingcap/docs-dm.git
+	shallow = true
+[submodule "code/pingcap/docs-staging"]
+	path = code/pingcap/docs-staging
+	url = https://github.com/pingcap/docs-staging.git
+	shallow = true
+[submodule "code/pingcap/docs-tidb-operator"]
+	path = code/pingcap/docs-tidb-operator
+	url = https://github.com/pingcap/docs-tidb-operator.git
+	shallow = true
+[submodule "code/pingcap/docs-toolkit"]
+	path = code/pingcap/docs-toolkit
+	url = https://github.com/pingcap/docs-toolkit.git
+	shallow = true
+[submodule "code/pingcap/dr-testing"]
+	path = code/pingcap/dr-testing
+	url = https://github.com/pingcap/dr-testing.git
+	shallow = true
+[submodule "code/pingcap/dumpling"]
+	path = code/pingcap/dumpling
+	url = https://github.com/pingcap/dumpling.git
+	shallow = true
+[submodule "code/pingcap/education"]
+	path = code/pingcap/education
+	url = https://github.com/pingcap/education.git
+	shallow = true
+[submodule "code/pingcap/errcode"]
+	path = code/pingcap/errcode
+	url = https://github.com/pingcap/errcode.git
+	shallow = true
+[submodule "code/pingcap/errors"]
+	path = code/pingcap/errors
+	url = https://github.com/pingcap/errors.git
+	shallow = true
+[submodule "code/pingcap/etcd-client"]
+	path = code/pingcap/etcd-client
+	url = https://github.com/pingcap/etcd-client.git
+	shallow = true
+[submodule "code/pingcap/etcdv3-gateway"]
+	path = code/pingcap/etcdv3-gateway
+	url = https://github.com/pingcap/etcdv3-gateway.git
+	shallow = true
+[submodule "code/pingcap/failpoint"]
+	path = code/pingcap/failpoint
+	url = https://github.com/pingcap/failpoint.git
+	shallow = true
+[submodule "code/pingcap/fn"]
+	path = code/pingcap/fn
+	url = https://github.com/pingcap/fn.git
+	shallow = true
+[submodule "code/pingcap/full-stack-app-builder-ai-agent"]
+	path = code/pingcap/full-stack-app-builder-ai-agent
+	url = https://github.com/pingcap/full-stack-app-builder-ai-agent.git
+	shallow = true
+[submodule "code/pingcap/gardener-extension-os-ubuntu-tidb"]
+	path = code/pingcap/gardener-extension-os-ubuntu-tidb
+	url = https://github.com/pingcap/gardener-extension-os-ubuntu-tidb.git
+	shallow = true
+[submodule "code/pingcap/gdocwiki"]
+	path = code/pingcap/gdocwiki
+	url = https://github.com/pingcap/gdocwiki.git
+	shallow = true
+[submodule "code/pingcap/go-hbase"]
+	path = code/pingcap/go-hbase
+	url = https://github.com/pingcap/go-hbase.git
+	shallow = true
+[submodule "code/pingcap/go-randgen"]
+	path = code/pingcap/go-randgen
+	url = https://github.com/pingcap/go-randgen.git
+	shallow = true
+[submodule "code/pingcap/go-themis"]
+	path = code/pingcap/go-themis
+	url = https://github.com/pingcap/go-themis.git
+	shallow = true
+[submodule "code/pingcap/go-tpc"]
+	path = code/pingcap/go-tpc
+	url = https://github.com/pingcap/go-tpc.git
+	shallow = true
+[submodule "code/pingcap/go-ycsb"]
+	path = code/pingcap/go-ycsb
+	url = https://github.com/pingcap/go-ycsb.git
+	shallow = true
+[submodule "code/pingcap/gofail"]
+	path = code/pingcap/gofail
+	url = https://github.com/pingcap/gofail.git
+	shallow = true
+[submodule "code/pingcap/goleveldb"]
+	path = code/pingcap/goleveldb
+	url = https://github.com/pingcap/goleveldb.git
+	shallow = true
+[submodule "code/pingcap/goyacc"]
+	path = code/pingcap/goyacc
+	url = https://github.com/pingcap/goyacc.git
+	shallow = true
+[submodule "code/pingcap/grpc-rust"]
+	path = code/pingcap/grpc-rust
+	url = https://github.com/pingcap/grpc-rust.git
+	shallow = true
+[submodule "code/pingcap/hibernate-tidb"]
+	path = code/pingcap/hibernate-tidb
+	url = https://github.com/pingcap/hibernate-tidb.git
+	shallow = true
+[submodule "code/pingcap/homebrew-brew"]
+	path = code/pingcap/homebrew-brew
+	url = https://github.com/pingcap/homebrew-brew.git
+	shallow = true
+[submodule "code/pingcap/jepsen"]
+	path = code/pingcap/jepsen
+	url = https://github.com/pingcap/jepsen.git
+	shallow = true
+[submodule "code/pingcap/k8s-fluent-bit-stackdriver"]
+	path = code/pingcap/k8s-fluent-bit-stackdriver
+	url = https://github.com/pingcap/k8s-fluent-bit-stackdriver.git
+	shallow = true
+[submodule "code/pingcap/kdt"]
+	path = code/pingcap/kdt
+	url = https://github.com/pingcap/kdt.git
+	shallow = true
+[submodule "code/pingcap/kops"]
+	path = code/pingcap/kops
+	url = https://github.com/pingcap/kops.git
+	shallow = true
+[submodule "code/pingcap/kubeadm-dind-cluster"]
+	path = code/pingcap/kubeadm-dind-cluster
+	url = https://github.com/pingcap/kubeadm-dind-cluster.git
+	shallow = true
+[submodule "code/pingcap/kvproto"]
+	path = code/pingcap/kvproto
+	url = https://github.com/pingcap/kvproto.git
+	shallow = true
+[submodule "code/pingcap/log"]
+	path = code/pingcap/log
+	url = https://github.com/pingcap/log.git
+	shallow = true
+[submodule "code/pingcap/logo"]
+	path = code/pingcap/logo
+	url = https://github.com/pingcap/logo.git
+	shallow = true
+[submodule "code/pingcap/meetup"]
+	path = code/pingcap/meetup
+	url = https://github.com/pingcap/meetup.git
+	shallow = true
+[submodule "code/pingcap/metering_sdk"]
+	path = code/pingcap/metering_sdk
+	url = https://github.com/pingcap/metering_sdk.git
+	shallow = true
+[submodule "code/pingcap/monitoring"]
+	path = code/pingcap/monitoring
+	url = https://github.com/pingcap/monitoring.git
+	shallow = true
+[submodule "code/pingcap/mp"]
+	path = code/pingcap/mp
+	url = https://github.com/pingcap/mp.git
+	shallow = true
+[submodule "code/pingcap/mpdriver"]
+	path = code/pingcap/mpdriver
+	url = https://github.com/pingcap/mpdriver.git
+	shallow = true
+[submodule "code/pingcap/murmur3"]
+	path = code/pingcap/murmur3
+	url = https://github.com/pingcap/murmur3.git
+	shallow = true
+[submodule "code/pingcap/mybatis-3"]
+	path = code/pingcap/mybatis-3
+	url = https://github.com/pingcap/mybatis-3.git
+	shallow = true
+[submodule "code/pingcap/mydumper"]
+	path = code/pingcap/mydumper
+	url = https://github.com/pingcap/mydumper.git
+	shallow = true
+[submodule "code/pingcap/mysql-connector-j"]
+	path = code/pingcap/mysql-connector-j
+	url = https://github.com/pingcap/mysql-connector-j.git
+	shallow = true
+[submodule "code/pingcap/mysql-tester"]
+	path = code/pingcap/mysql-tester
+	url = https://github.com/pingcap/mysql-tester.git
+	shallow = true
+[submodule "code/pingcap/mysqlrelay"]
+	path = code/pingcap/mysqlrelay
+	url = https://github.com/pingcap/mysqlrelay.git
+	shallow = true
+[submodule "code/pingcap/mysqlx-driver"]
+	path = code/pingcap/mysqlx-driver
+	url = https://github.com/pingcap/mysqlx-driver.git
+	shallow = true
+[submodule "code/pingcap/ng-monitoring"]
+	path = code/pingcap/ng-monitoring
+	url = https://github.com/pingcap/ng-monitoring.git
+	shallow = true
+[submodule "code/pingcap/oasis"]
+	path = code/pingcap/oasis
+	url = https://github.com/pingcap/oasis.git
+	shallow = true
+[submodule "code/pingcap/octopus"]
+	path = code/pingcap/octopus
+	url = https://github.com/pingcap/octopus.git
+	shallow = true
+[submodule "code/pingcap/os-ubuntu-tikv"]
+	path = code/pingcap/os-ubuntu-tikv
+	url = https://github.com/pingcap/os-ubuntu-tikv.git
+	shallow = true
+[submodule "code/pingcap/ossinsight"]
+	path = code/pingcap/ossinsight
+	url = https://github.com/pingcap/ossinsight.git
+	shallow = true
+[submodule "code/pingcap/ossinsight-next"]
+	path = code/pingcap/ossinsight-next
+	url = https://github.com/pingcap/ossinsight-next.git
+	shallow = true
+[submodule "code/pingcap/parser"]
+	path = code/pingcap/parser
+	url = https://github.com/pingcap/parser.git
+	shallow = true
+[submodule "code/pingcap/pingcap.github.io"]
+	path = code/pingcap/pingcap.github.io
+	url = https://github.com/pingcap/pingcap.github.io.git
+	shallow = true
+[submodule "code/pingcap/poco"]
+	path = code/pingcap/poco
+	url = https://github.com/pingcap/poco.git
+	shallow = true
+[submodule "code/pingcap/presentations"]
+	path = code/pingcap/presentations
+	url = https://github.com/pingcap/presentations.git
+	shallow = true
+[submodule "code/pingcap/public_bi_benchmark"]
+	path = code/pingcap/public_bi_benchmark
+	url = https://github.com/pingcap/public_bi_benchmark.git
+	shallow = true
+[submodule "code/pingcap/pytidb"]
+	path = code/pingcap/pytidb
+	url = https://github.com/pingcap/pytidb.git
+	shallow = true
+[submodule "code/pingcap/rails"]
+	path = code/pingcap/rails
+	url = https://github.com/pingcap/rails.git
+	shallow = true
+[submodule "code/pingcap/rust-protobuf"]
+	path = code/pingcap/rust-protobuf
+	url = https://github.com/pingcap/rust-protobuf.git
+	shallow = true
+[submodule "code/pingcap/sarama"]
+	path = code/pingcap/sarama
+	url = https://github.com/pingcap/sarama.git
+	shallow = true
+[submodule "code/pingcap/sp500-insight-template"]
+	path = code/pingcap/sp500-insight-template
+	url = https://github.com/pingcap/sp500-insight-template.git
+	shallow = true
+[submodule "code/pingcap/sqlalchemy-tidb"]
+	path = code/pingcap/sqlalchemy-tidb
+	url = https://github.com/pingcap/sqlalchemy-tidb.git
+	shallow = true
+[submodule "code/pingcap/sqlgram"]
+	path = code/pingcap/sqlgram
+	url = https://github.com/pingcap/sqlgram.git
+	shallow = true
+[submodule "code/pingcap/sqllogictest"]
+	path = code/pingcap/sqllogictest
+	url = https://github.com/pingcap/sqllogictest.git
+	shallow = true
+[submodule "code/pingcap/sqlsmith"]
+	path = code/pingcap/sqlsmith
+	url = https://github.com/pingcap/sqlsmith.git
+	shallow = true
+[submodule "code/pingcap/steam-insight-template"]
+	path = code/pingcap/steam-insight-template
+	url = https://github.com/pingcap/steam-insight-template.git
+	shallow = true
+[submodule "code/pingcap/style-guide"]
+	path = code/pingcap/style-guide
+	url = https://github.com/pingcap/style-guide.git
+	shallow = true
+[submodule "code/pingcap/sysutil"]
+	path = code/pingcap/sysutil
+	url = https://github.com/pingcap/sysutil.git
+	shallow = true
+[submodule "code/pingcap/talent-plan"]
+	path = code/pingcap/talent-plan
+	url = https://github.com/pingcap/talent-plan.git
+	shallow = true
+[submodule "code/pingcap/tantivy"]
+	path = code/pingcap/tantivy
+	url = https://github.com/pingcap/tantivy.git
+	shallow = true
+[submodule "code/pingcap/themis"]
+	path = code/pingcap/themis
+	url = https://github.com/pingcap/themis.git
+	shallow = true
+[submodule "code/pingcap/thirdparty-ops"]
+	path = code/pingcap/thirdparty-ops
+	url = https://github.com/pingcap/thirdparty-ops.git
+	shallow = true
+[submodule "code/pingcap/ticdc"]
+	path = code/pingcap/ticdc
+	url = https://github.com/pingcap/ticdc.git
+	shallow = true
+[submodule "code/pingcap/tidb-academy-labs"]
+	path = code/pingcap/tidb-academy-labs
+	url = https://github.com/pingcap/tidb-academy-labs.git
+	shallow = true
+[submodule "code/pingcap/tidb-ansible"]
+	path = code/pingcap/tidb-ansible
+	url = https://github.com/pingcap/tidb-ansible.git
+	shallow = true
+[submodule "code/pingcap/tidb-bench"]
+	path = code/pingcap/tidb-bench
+	url = https://github.com/pingcap/tidb-bench.git
+	shallow = true
+[submodule "code/pingcap/tidb-binlog"]
+	path = code/pingcap/tidb-binlog
+	url = https://github.com/pingcap/tidb-binlog.git
+	shallow = true
+[submodule "code/pingcap/tidb-cloud-backup"]
+	path = code/pingcap/tidb-cloud-backup
+	url = https://github.com/pingcap/tidb-cloud-backup.git
+	shallow = true
+[submodule "code/pingcap/tidb-course-201-lab"]
+	path = code/pingcap/tidb-course-201-lab
+	url = https://github.com/pingcap/tidb-course-201-lab.git
+	shallow = true
+[submodule "code/pingcap/tidb-ctl"]
+	path = code/pingcap/tidb-ctl
+	url = https://github.com/pingcap/tidb-ctl.git
+	shallow = true
+[submodule "code/pingcap/tidb-dashboard"]
+	path = code/pingcap/tidb-dashboard
+	url = https://github.com/pingcap/tidb-dashboard.git
+	shallow = true
+[submodule "code/pingcap/tidb-datanucleus-adapter"]
+	path = code/pingcap/tidb-datanucleus-adapter
+	url = https://github.com/pingcap/tidb-datanucleus-adapter.git
+	shallow = true
+[submodule "code/pingcap/tidb-dev-guide"]
+	path = code/pingcap/tidb-dev-guide
+	url = https://github.com/pingcap/tidb-dev-guide.git
+	shallow = true
+[submodule "code/pingcap/tidb-docker-compose"]
+	path = code/pingcap/tidb-docker-compose
+	url = https://github.com/pingcap/tidb-docker-compose.git
+	shallow = true
+[submodule "code/pingcap/tidb-engine-ext"]
+	path = code/pingcap/tidb-engine-ext
+	url = https://github.com/pingcap/tidb-engine-ext.git
+	shallow = true
+[submodule "code/pingcap/tidb-examples"]
+	path = code/pingcap/tidb-examples
+	url = https://github.com/pingcap/tidb-examples.git
+	shallow = true
+[submodule "code/pingcap/tidb-helper"]
+	path = code/pingcap/tidb-helper
+	url = https://github.com/pingcap/tidb-helper.git
+	shallow = true
+[submodule "code/pingcap/tidb-insight"]
+	path = code/pingcap/tidb-insight
+	url = https://github.com/pingcap/tidb-insight.git
+	shallow = true
+[submodule "code/pingcap/tidb-inspect-tools"]
+	path = code/pingcap/tidb-inspect-tools
+	url = https://github.com/pingcap/tidb-inspect-tools.git
+	shallow = true
+[submodule "code/pingcap/tidb-lightning"]
+	path = code/pingcap/tidb-lightning
+	url = https://github.com/pingcap/tidb-lightning.git
+	shallow = true
+[submodule "code/pingcap/tidb-lmdb"]
+	path = code/pingcap/tidb-lmdb
+	url = https://github.com/pingcap/tidb-lmdb.git
+	shallow = true
+[submodule "code/pingcap/tidb-loadbalance"]
+	path = code/pingcap/tidb-loadbalance
+	url = https://github.com/pingcap/tidb-loadbalance.git
+	shallow = true
+[submodule "code/pingcap/tidb-map"]
+	path = code/pingcap/tidb-map
+	url = https://github.com/pingcap/tidb-map.git
+	shallow = true
+[submodule "code/pingcap/tidb-operator"]
+	path = code/pingcap/tidb-operator
+	url = https://github.com/pingcap/tidb-operator.git
+	shallow = true
+[submodule "code/pingcap/tidb-prisma-vercel-demo"]
+	path = code/pingcap/tidb-prisma-vercel-demo
+	url = https://github.com/pingcap/tidb-prisma-vercel-demo.git
+	shallow = true
+[submodule "code/pingcap/tidb-tools"]
+	path = code/pingcap/tidb-tools
+	url = https://github.com/pingcap/tidb-tools.git
+	shallow = true
+[submodule "code/pingcap/tidb-vector-python"]
+	path = code/pingcap/tidb-vector-python
+	url = https://github.com/pingcap/tidb-vector-python.git
+	shallow = true
+[submodule "code/pingcap/tidb-vision"]
+	path = code/pingcap/tidb-vision
+	url = https://github.com/pingcap/tidb-vision.git
+	shallow = true
+[submodule "code/pingcap/tidb_workload_analysis"]
+	path = code/pingcap/tidb_workload_analysis
+	url = https://github.com/pingcap/tidb_workload_analysis.git
+	shallow = true
+[submodule "code/pingcap/tidiff"]
+	path = code/pingcap/tidiff
+	url = https://github.com/pingcap/tidiff.git
+	shallow = true
+[submodule "code/pingcap/tiflow"]
+	path = code/pingcap/tiflow
+	url = https://github.com/pingcap/tiflow.git
+	shallow = true
+[submodule "code/pingcap/tiflow-operator"]
+	path = code/pingcap/tiflow-operator
+	url = https://github.com/pingcap/tiflow-operator.git
+	shallow = true
+[submodule "code/pingcap/tikv-client-lib-java"]
+	path = code/pingcap/tikv-client-lib-java
+	url = https://github.com/pingcap/tikv-client-lib-java.git
+	shallow = true
+[submodule "code/pingcap/tipb"]
+	path = code/pingcap/tipb
+	url = https://github.com/pingcap/tipb.git
+	shallow = true
+[submodule "code/pingcap/tipocket"]
+	path = code/pingcap/tipocket
+	url = https://github.com/pingcap/tipocket.git
+	shallow = true
+[submodule "code/pingcap/tiproxy"]
+	path = code/pingcap/tiproxy
+	url = https://github.com/pingcap/tiproxy.git
+	shallow = true
+[submodule "code/pingcap/tispark"]
+	path = code/pingcap/tispark
+	url = https://github.com/pingcap/tispark.git
+	shallow = true
+[submodule "code/pingcap/tispark-test"]
+	path = code/pingcap/tispark-test
+	url = https://github.com/pingcap/tispark-test.git
+	shallow = true
+[submodule "code/pingcap/tispark-test-data"]
+	path = code/pingcap/tispark-test-data
+	url = https://github.com/pingcap/tispark-test-data.git
+	shallow = true
+[submodule "code/pingcap/tiunimanager"]
+	path = code/pingcap/tiunimanager
+	url = https://github.com/pingcap/tiunimanager.git
+	shallow = true
+[submodule "code/pingcap/tiunimanager-ui"]
+	path = code/pingcap/tiunimanager-ui
+	url = https://github.com/pingcap/tiunimanager-ui.git
+	shallow = true
+[submodule "code/pingcap/tiup"]
+	path = code/pingcap/tiup
+	url = https://github.com/pingcap/tiup.git
+	shallow = true
+[submodule "code/pingcap/tla-plus"]
+	path = code/pingcap/tla-plus
+	url = https://github.com/pingcap/tla-plus.git
+	shallow = true
+[submodule "code/pingcap/tpcc-mysql"]
+	path = code/pingcap/tpcc-mysql
+	url = https://github.com/pingcap/tpcc-mysql.git
+	shallow = true
+[submodule "code/pingcap/tso"]
+	path = code/pingcap/tso
+	url = https://github.com/pingcap/tso.git
+	shallow = true
+[submodule "code/pingcap/vldb-boss-2018"]
+	path = code/pingcap/vldb-boss-2018
+	url = https://github.com/pingcap/vldb-boss-2018.git
+	shallow = true
+[submodule "code/pingcap/website"]
+	path = code/pingcap/website
+	url = https://github.com/pingcap/website.git
+	shallow = true
+[submodule "code/pingcap/website-docs"]
+	path = code/pingcap/website-docs
+	url = https://github.com/pingcap/website-docs.git
+	shallow = true
+[submodule "code/pingcap/weekly"]
+	path = code/pingcap/weekly
+	url = https://github.com/pingcap/weekly.git
+	shallow = true
+[submodule "code/pingcap/wordpress-tidb-docker"]
+	path = code/pingcap/wordpress-tidb-docker
+	url = https://github.com/pingcap/wordpress-tidb-docker.git
+	shallow = true
+[submodule "code/pingcap/wordpress-tidb-plugin"]
+	path = code/pingcap/wordpress-tidb-plugin
+	url = https://github.com/pingcap/wordpress-tidb-plugin.git
+	shallow = true
+[submodule "code/pingcap/work-reporter"]
+	path = code/pingcap/work-reporter
+	url = https://github.com/pingcap/work-reporter.git
+	shallow = true
+[submodule "code/tikv/agatedb"]
+	path = code/tikv/agatedb
+	url = https://github.com/tikv/agatedb.git
+	shallow = true
+[submodule "code/tikv/async-speed-limit"]
+	path = code/tikv/async-speed-limit
+	url = https://github.com/tikv/async-speed-limit.git
+	shallow = true
+[submodule "code/tikv/auto-tikv"]
+	path = code/tikv/auto-tikv
+	url = https://github.com/tikv/auto-tikv.git
+	shallow = true
+[submodule "code/tikv/azure-sdk-for-rust"]
+	path = code/tikv/azure-sdk-for-rust
+	url = https://github.com/tikv/azure-sdk-for-rust.git
+	shallow = true
+[submodule "code/tikv/bytes"]
+	path = code/tikv/bytes
+	url = https://github.com/tikv/bytes.git
+	shallow = true
+[submodule "code/tikv/client-c"]
+	path = code/tikv/client-c
+	url = https://github.com/tikv/client-c.git
+	shallow = true
+[submodule "code/tikv/client-cpp"]
+	path = code/tikv/client-cpp
+	url = https://github.com/tikv/client-cpp.git
+	shallow = true
+[submodule "code/tikv/client-go"]
+	path = code/tikv/client-go
+	url = https://github.com/tikv/client-go.git
+	shallow = true
+[submodule "code/tikv/client-java"]
+	path = code/tikv/client-java
+	url = https://github.com/tikv/client-java.git
+	shallow = true
+[submodule "code/tikv/client-node"]
+	path = code/tikv/client-node
+	url = https://github.com/tikv/client-node.git
+	shallow = true
+[submodule "code/tikv/client-py"]
+	path = code/tikv/client-py
+	url = https://github.com/tikv/client-py.git
+	shallow = true
+[submodule "code/tikv/client-rust"]
+	path = code/tikv/client-rust
+	url = https://github.com/tikv/client-rust.git
+	shallow = true
+[submodule "code/tikv/client-validator"]
+	path = code/tikv/client-validator
+	url = https://github.com/tikv/client-validator.git
+	shallow = true
+[submodule "code/tikv/community"]
+	path = code/tikv/community
+	url = https://github.com/tikv/community.git
+	shallow = true
+[submodule "code/tikv/copr-test"]
+	path = code/tikv/copr-test
+	url = https://github.com/tikv/copr-test.git
+	shallow = true
+[submodule "code/tikv/crc64fast"]
+	path = code/tikv/crc64fast
+	url = https://github.com/tikv/crc64fast.git
+	shallow = true
+[submodule "code/tikv/criterion.rs"]
+	path = code/tikv/criterion.rs
+	url = https://github.com/tikv/criterion.rs.git
+	shallow = true
+[submodule "code/tikv/crossbeam"]
+	path = code/tikv/crossbeam
+	url = https://github.com/tikv/crossbeam.git
+	shallow = true
+[submodule "code/tikv/deep-dive-tikv"]
+	path = code/tikv/deep-dive-tikv
+	url = https://github.com/tikv/deep-dive-tikv.git
+	shallow = true
+[submodule "code/tikv/encoding_rs"]
+	path = code/tikv/encoding_rs
+	url = https://github.com/tikv/encoding_rs.git
+	shallow = true
+[submodule "code/tikv/fail-rs"]
+	path = code/tikv/fail-rs
+	url = https://github.com/tikv/fail-rs.git
+	shallow = true
+[submodule "code/tikv/fs2-rs"]
+	path = code/tikv/fs2-rs
+	url = https://github.com/tikv/fs2-rs.git
+	shallow = true
+[submodule "code/tikv/grpc"]
+	path = code/tikv/grpc
+	url = https://github.com/tikv/grpc.git
+	shallow = true
+[submodule "code/tikv/grpc-rs"]
+	path = code/tikv/grpc-rs
+	url = https://github.com/tikv/grpc-rs.git
+	shallow = true
+[submodule "code/tikv/importer"]
+	path = code/tikv/importer
+	url = https://github.com/tikv/importer.git
+	shallow = true
+[submodule "code/tikv/jemalloc"]
+	path = code/tikv/jemalloc
+	url = https://github.com/tikv/jemalloc.git
+	shallow = true
+[submodule "code/tikv/jemallocator"]
+	path = code/tikv/jemallocator
+	url = https://github.com/tikv/jemallocator.git
+	shallow = true
+[submodule "code/tikv/jepsen-test"]
+	path = code/tikv/jepsen-test
+	url = https://github.com/tikv/jepsen-test.git
+	shallow = true
+[submodule "code/tikv/match-template"]
+	path = code/tikv/match-template
+	url = https://github.com/tikv/match-template.git
+	shallow = true
+[submodule "code/tikv/migration"]
+	path = code/tikv/migration
+	url = https://github.com/tikv/migration.git
+	shallow = true
+[submodule "code/tikv/minitrace-go"]
+	path = code/tikv/minitrace-go
+	url = https://github.com/tikv/minitrace-go.git
+	shallow = true
+[submodule "code/tikv/minitrace-rust"]
+	path = code/tikv/minitrace-rust
+	url = https://github.com/tikv/minitrace-rust.git
+	shallow = true
+[submodule "code/tikv/minstant"]
+	path = code/tikv/minstant
+	url = https://github.com/tikv/minstant.git
+	shallow = true
+[submodule "code/tikv/mock-tikv"]
+	path = code/tikv/mock-tikv
+	url = https://github.com/tikv/mock-tikv.git
+	shallow = true
+[submodule "code/tikv/mur3"]
+	path = code/tikv/mur3
+	url = https://github.com/tikv/mur3.git
+	shallow = true
+[submodule "code/tikv/pprof-rs"]
+	path = code/tikv/pprof-rs
+	url = https://github.com/tikv/pprof-rs.git
+	shallow = true
+[submodule "code/tikv/procinfo-rs"]
+	path = code/tikv/procinfo-rs
+	url = https://github.com/tikv/procinfo-rs.git
+	shallow = true
+[submodule "code/tikv/protobuf-build"]
+	path = code/tikv/protobuf-build
+	url = https://github.com/tikv/protobuf-build.git
+	shallow = true
+[submodule "code/tikv/raft-engine"]
+	path = code/tikv/raft-engine
+	url = https://github.com/tikv/raft-engine.git
+	shallow = true
+[submodule "code/tikv/raft-rs"]
+	path = code/tikv/raft-rs
+	url = https://github.com/tikv/raft-rs.git
+	shallow = true
+[submodule "code/tikv/rfcs"]
+	path = code/tikv/rfcs
+	url = https://github.com/tikv/rfcs.git
+	shallow = true
+[submodule "code/tikv/rocksdb"]
+	path = code/tikv/rocksdb
+	url = https://github.com/tikv/rocksdb.git
+	shallow = true
+[submodule "code/tikv/rusoto"]
+	path = code/tikv/rusoto
+	url = https://github.com/tikv/rusoto.git
+	shallow = true
+[submodule "code/tikv/rust-prometheus"]
+	path = code/tikv/rust-prometheus
+	url = https://github.com/tikv/rust-prometheus.git
+	shallow = true
+[submodule "code/tikv/rust-protobuf"]
+	path = code/tikv/rust-protobuf
+	url = https://github.com/tikv/rust-protobuf.git
+	shallow = true
+[submodule "code/tikv/rust-rocksdb"]
+	path = code/tikv/rust-rocksdb
+	url = https://github.com/tikv/rust-rocksdb.git
+	shallow = true
+[submodule "code/tikv/rust-snappy"]
+	path = code/tikv/rust-snappy
+	url = https://github.com/tikv/rust-snappy.git
+	shallow = true
+[submodule "code/tikv/rust-three-days-course"]
+	path = code/tikv/rust-three-days-course
+	url = https://github.com/tikv/rust-three-days-course.git
+	shallow = true
+[submodule "code/tikv/sig-transaction"]
+	path = code/tikv/sig-transaction
+	url = https://github.com/tikv/sig-transaction.git
+	shallow = true
+[submodule "code/tikv/skiplist-rs"]
+	path = code/tikv/skiplist-rs
+	url = https://github.com/tikv/skiplist-rs.git
+	shallow = true
+[submodule "code/tikv/slog-global"]
+	path = code/tikv/slog-global
+	url = https://github.com/tikv/slog-global.git
+	shallow = true
+[submodule "code/tikv/sysinfo"]
+	path = code/tikv/sysinfo
+	url = https://github.com/tikv/sysinfo.git
+	shallow = true
+[submodule "code/tikv/tame-oauth"]
+	path = code/tikv/tame-oauth
+	url = https://github.com/tikv/tame-oauth.git
+	shallow = true
+[submodule "code/tikv/terraform-tikv-bench"]
+	path = code/tikv/terraform-tikv-bench
+	url = https://github.com/tikv/terraform-tikv-bench.git
+	shallow = true
+[submodule "code/tikv/tikv-dev-guide"]
+	path = code/tikv/tikv-dev-guide
+	url = https://github.com/tikv/tikv-dev-guide.git
+	shallow = true
+[submodule "code/tikv/tikv-operator"]
+	path = code/tikv/tikv-operator
+	url = https://github.com/tikv/tikv-operator.git
+	shallow = true
+[submodule "code/tikv/tikv.github.io"]
+	path = code/tikv/tikv.github.io
+	url = https://github.com/tikv/tikv.github.io.git
+	shallow = true
+[submodule "code/tikv/titan"]
+	path = code/tikv/titan
+	url = https://github.com/tikv/titan.git
+	shallow = true
+[submodule "code/tikv/tlaplus-specs"]
+	path = code/tikv/tlaplus-specs
+	url = https://github.com/tikv/tlaplus-specs.git
+	shallow = true
+[submodule "code/tikv/tokio"]
+	path = code/tikv/tokio
+	url = https://github.com/tikv/tokio.git
+	shallow = true
+[submodule "code/tikv/tracing-active-tree"]
+	path = code/tikv/tracing-active-tree
+	url = https://github.com/tikv/tracing-active-tree.git
+	shallow = true
+[submodule "code/tikv/website"]
+	path = code/tikv/website
+	url = https://github.com/tikv/website.git
+	shallow = true
+[submodule "code/tikv/yatp"]
+	path = code/tikv/yatp
+	url = https://github.com/tikv/yatp.git
+	shallow = true
